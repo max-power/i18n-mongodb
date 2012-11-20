@@ -18,15 +18,19 @@ Or install it yourself as:
     $ gem install i18n-mongodb
 
 ## Usage
+```ruby
+require 'i18n/backend/mongodb'
 
-    require 'i18n/backend/mongodb'
-    collection   = Mongo::Connection.new.db('test').collection('translations')
-    I18n.backend = I18n::Backend::MongoDB.new(collection)
+collection   = Mongo::Connection.new.db('test').collection('translations')
+I18n.backend = I18n::Backend::MongoDB.new(collection)
+```
     
-You can pass a boolean value as second argument to the new Backend, 
+You can pass a boolean value as second argument to the backend, 
 to auto insert missing translations to the database
 
-    I18n.backend = I18n::Backend::MongoDB.new(collection, true)
+```ruby
+I18n.backend = I18n::Backend::MongoDB.new(collection, true)
+```
 
 ## Contributing
 
