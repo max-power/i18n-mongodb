@@ -9,7 +9,7 @@ module I18n
       
       def initialize(collection, auto_insert_missing=false)
         @collection, @auto_insert_missing = collection, auto_insert_missing
-        create_index
+        @collection.ensure_index([['k', 1], ['l', 1]], unique: true)
       end
       
       def available_locales
@@ -39,10 +39,6 @@ module I18n
       
       def update_collection(locale, key, value)
         collection.update({ k: key.to_s, l: locale.to_s }, { '$set' => { v: value } }, { upsert: true, safe: true })
-      end
-      
-      def create_index
-        @collection.ensure_index([['k', 1], ['l', 1]], unique: true)
       end
     end
   end

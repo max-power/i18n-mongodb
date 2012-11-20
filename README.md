@@ -19,7 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
-    collection = Mongo::Connection.new.db('test').collection('translations')
+    require 'i18n/backend/mongodb'
+    collection   = Mongo::Connection.new.db('test').collection('translations')
     I18n.backend = I18n::Backend::MongoDB.new(collection)
     
 You can pass a boolean value as second argument to the new Backend, 
