@@ -18,6 +18,9 @@ Or install it yourself as:
     $ gem install i18n-mongodb
 
 ## Usage
+
+To initialize the I18n MongoDB Backend, just pass it a Mongo Collection.
+
 ```ruby
 require 'i18n/backend/mongodb'
 
