@@ -24,7 +24,7 @@ module I18n
       
       def translate(locale, key, options={})
         super
-      rescue I18n::MissingTranslationData => e
+      rescue I18n::MissingTranslation => e
         self.update_collection(locale, key, nil) if @auto_insert_missing
         raise e
       end
