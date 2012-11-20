@@ -16,6 +16,10 @@ module I18n
         collection.distinct(:l).map(&:to_sym)
       end
       
+      def keys
+        collection.distinct(:k)
+      end
+      
       def store_translations(locale, data, options={})
         flatten_translations(locale, data, options.fetch(:escape, false), false).each do |key, value|
           update_collection(locale, key, value)
