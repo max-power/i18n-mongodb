@@ -18,14 +18,14 @@ module I18n
       
       def store_translations(locale, data, options={})
         flatten_translations(locale, data, options.fetch(:escape, false), true).each do |key, value|
-          self.update_collection(locale, key, value)
+          update_collection(locale, key, value)
         end
       end
       
       def translate(locale, key, options={})
         super
       rescue I18n::MissingTranslationData => e
-        self.update_collection(locale, key, nil) if @auto_insert_missing
+        update_collection(locale, key, nil) if @auto_insert_missing
         raise e
       end
       
