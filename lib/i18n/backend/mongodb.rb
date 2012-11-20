@@ -17,7 +17,7 @@ module I18n
       end
       
       def store_translations(locale, data, options={})
-        flatten_translations(locale, data, options.fetch(:escape, false), true).each do |key, value|
+        flatten_translations(locale, data, options.fetch(:escape, false), false).each do |key, value|
           update_collection(locale, key, value)
         end
       end
