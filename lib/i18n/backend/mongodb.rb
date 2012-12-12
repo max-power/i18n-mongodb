@@ -42,7 +42,7 @@ module I18n
       end
       
       def update_collection(locale, key, value)
-        collection.update({ k: key.to_s, l: locale.to_s }, { '$set' => { v: value } }, { upsert: true, safe: true })
+        collection.update({ k: key.to_s, l: locale.to_s }, { '$set' => { v: value } }, { upsert: true })
       end
     end
   end
