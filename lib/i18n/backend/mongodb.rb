@@ -37,7 +37,7 @@ module I18n
       
       def lookup(locale, key, scope=[], options={})
         key   = normalize_flat_keys(locale, key, scope, options[:separator])
-        value = collection.find_one({ k: key.to_s, l: locale.to_s }, { fields: { v: 1 }, transformer: ->d{d['v']} })
+        value = collection.find_one({ k: key.to_s, l: locale.to_s }, { fields: { v: 1 }, transformer: ->d{ d['v'] } })
         value.is_a?(Hash) ? value.deep_symbolize_keys : value
       end
       
